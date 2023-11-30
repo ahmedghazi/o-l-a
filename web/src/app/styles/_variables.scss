@@ -1,0 +1,59 @@
+/* BASE VARIABLES
+ *******************/
+:root {
+  --app-height: 100%;
+  --header-height: 40px;
+  --color-bg: #e3e2dc;
+  --color-primary: yellow;
+  --color-hover: #333;
+  --color-muted: #666;
+
+  --font-primary: "Archivo", helvetica, sans-serif;
+  --font-primary-i: "Archivo", helvetica, sans-serif;
+
+  --space-1e: 1em;
+  --space-xs: 5px;
+  --space-sm: 10px;
+  --space-md: 20px;
+  --space-lg: 60px;
+  --space-xl: 120px;
+  --space-xxl: 240px;
+
+  // --text-xs: 0.rem;
+  --text-xs: 0.625rem;
+  --text-sm: 0.75rem;
+  --text-md: 1.5rem;
+  --text-lg: 1.5rem;
+  --text-xl: 2.5rem;
+  // --text-xl: 6vw;
+
+  /*
+  xs: 8pt 10px
+  md: 12pt 16px
+  lg: 18pt 24px
+  xl: 30pt 40px
+  */
+
+  // --cubic: cubic-bezier(0.53, 0, 0.36, 1);
+  --cubic: cubic-bezier(0.775, 0, 0.17, 1.005);
+
+  // --text-xl: clamp(26px, 5.21vw, 75px);
+
+  --border-width: 1px;
+  --border: var(--border-width) solid;
+  --border-width-lg: 2px;
+  --border-lg: var(--border-width-lg) solid;
+
+  // --gutter: 12px;
+  --gutter: 5px;
+  // --gutter: 6px;
+
+  --screen-sm: 768px;
+  --screen-md: 1080px;
+  --screen-lg: 1441px;
+}
+
+/* Breakpoints */
+$sm: 768px;
+$md: 1080px;
+$lg: 1441px;

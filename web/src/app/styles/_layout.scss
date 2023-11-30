@@ -1,0 +1,61 @@
+:root {
+  // scroll-behavior: auto !important;
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+html,
+body {
+  overflow: hidden;
+}
+body {
+  transition: background-color 0.4s var(--cubic), color 0.4s var(--cubic);
+}
+main {
+  position: relative;
+}
+.container {
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
+  @media all and (min-width: $md) {
+    padding-left: var(--space-xl);
+    padding-right: var(--space-xl);
+  }
+  max-width: none;
+}
+
+.h-app {
+  height: var(--app-height);
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+@media all and (min-width: $md) {
+}
+
+.sm-only {
+  display: none;
+}
+@media all and (max-width: $md) {
+  .sm-only {
+    display: block;
+  }
+  .hidden-sm {
+    display: none;
+  }
+}

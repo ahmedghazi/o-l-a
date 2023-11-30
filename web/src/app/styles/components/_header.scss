@@ -1,0 +1,16 @@
+header {
+  position: fixed;
+  // bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  padding: var(--space-md);
+  color: var(--color-primary);
+  nav li {
+    padding-right: 1rem;
+  }
+  nav a[aria-current="page"] {
+    text-decoration: underline;
+    text-underline-offset: 0.08em;
+  }
+}

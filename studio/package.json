@@ -1,0 +1,45 @@
+{
+  "name": "olivier-lellouche-design-workshop",
+  "private": true,
+  "version": "1.0.0",
+  "main": "package.json",
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "sanity dev",
+    "start": "sanity start",
+    "build": "sanity build",
+    "deploy-graphql": "sanity graphql deploy",
+    "deploy": "sanity deploy",
+    "d": "yarn run deploy-graphql && yarn run deploy && yarn run codegen",
+    "codegen": "npx sanity-codegen && cp -r types ../web/src/app"
+  },
+  "keywords": [
+    "sanity",
+    "codegen"
+  ],
+  "dependencies": {
+    "@sanity/vision": "^3.19.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.12.0",
+    "react-is": "^18.2.0",
+    "sanity": "^3.19.3",
+    "sanity-plugin-media": "^2.2.4",
+    "styled-components": "^6.0.7"
+  },
+  "devDependencies": {
+    "@babel/preset-typescript": "^7.23.3",
+    "@sanity/eslint-config-studio": "^3.0.1",
+    "@types/react": "^18.0.25",
+    "eslint": "^8.6.0",
+    "prettier": "^3.1.0",
+    "sanity-codegen": "^0.9.8",
+    "typescript": "^5.1.6"
+  },
+  "prettier": {
+    "semi": false,
+    "printWidth": 100,
+    "bracketSpacing": false,
+    "singleQuote": true
+  }
+}
