@@ -16,10 +16,19 @@ type Props = {
   playbackId: string;
   poster?: string;
 };
+interface LivePeerResponse {
+  meta: {
+    playbackPolicy: any;
+    source: Array<{
+      url: string;
+      type: string;
+    }>;
+  };
+}
 
 //002c1ea1-1d72-4bfc-8d7b-48deea3159b9
 const LivePeerPlayer = ({ playbackId, poster }: Props) => {
-  const [data, setData] = useState();
+  const [data, setData] = useState<LivePeerResponse>();
   console.log(data);
   useEffect(() => {
     //https://livepeer.studio/api/playback/c6e2s9frawq8j3q5
@@ -65,7 +74,7 @@ const LivePeerPlayer = ({ playbackId, poster }: Props) => {
               />
             ))}
             <p>
-              Your browser doesn't support HTML video. Here is a
+              Your browser does not support HTML video. Here is a
               <a href='myVideo.mp4'>link to the video</a> instead.
             </p>
           </video>

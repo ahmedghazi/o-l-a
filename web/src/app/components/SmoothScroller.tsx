@@ -15,10 +15,11 @@ const SmoothScroller = ({ children }: Props) => {
 
   useEffect(() => {
     setMounted(true);
-
+    const wrapper: HTMLElement = lenisWrapperRef.current as HTMLElement;
+    const content: HTMLElement = lenisContentRef.current as HTMLElement;
     const lenis = new Lenis({
-      wrapper: lenisWrapperRef.current,
-      content: lenisContentRef.current,
+      wrapper: wrapper,
+      content: content,
       syncTouch: true,
       lerp: 0.1,
       wheelMultiplier: 0.8,
