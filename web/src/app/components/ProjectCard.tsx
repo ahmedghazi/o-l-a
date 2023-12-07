@@ -4,6 +4,7 @@ import PreJson from "./ui/PreJson";
 import Image from "next/image";
 import { _linkResolver } from "../utils/utils";
 import Link from "next/link";
+import Figure from "./ui/Figure";
 
 type Props = {
   input: Project;
@@ -16,22 +17,23 @@ const ProjectCard = ({ input }: Props) => {
       {/* <PreJson input={input} /> */}
       <Link href={_linkResolver(input)}>
         {coverImage && (
-          <figure className=''>
-            <Image
-              src={coverImage.asset.url}
-              width={coverImage.asset?.metadata?.dimensions.width}
-              height={coverImage.asset?.metadata?.dimensions.height}
-              alt={title || "alt"}
-              sizes='100vw'
-              style={{
-                width: "auto",
-                height: "100vh",
-              }}
-              blurDataURL={coverImage.asset?.metadata?.lqip}
-              placeholder='blur'
-              unoptimized
-            />
-          </figure>
+          // <figure className=''>
+          //   <Image
+          //     src={coverImage.asset.url}
+          //     width={coverImage.asset?.metadata?.dimensions.width}
+          //     height={coverImage.asset?.metadata?.dimensions.height}
+          //     alt={title || "alt"}
+          //     sizes='100vw'
+          //     style={{
+          //       width: "auto",
+          //       height: "100vh",
+          //     }}
+          //     blurDataURL={coverImage.asset?.metadata?.lqip}
+          //     placeholder='blur'
+          //     unoptimized
+          //   />
+          // </figure>
+          <Figure image={coverImage} title={title} />
         )}
         <div className='footer absolute bottom-0 left-0 p-md'>
           <h2>{title}</h2>
