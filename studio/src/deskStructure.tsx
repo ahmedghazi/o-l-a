@@ -1,11 +1,3 @@
-// import {BiDockTop, BiDockBottom} from 'react-icons/bi'
-// import {ControlsIcon} from '@sanity/icons'
-import {ListItemBuilder, StructureResolver} from 'sanity/desk'
-import SeoPreview from './previews/seo/index'
-const remoteURL = 'https://website.vercel.app'
-const localURL = 'http://localhost:3000'
-const previewURL = window.location.hostname === 'localhost' ? localURL + '' : remoteURL + ''
-
 // If you add document types to desk structure manually, you can add them to this function to prevent duplicates in the root pane
 const hiddenDocTypes = (listItem: ListItemBuilder) => {
   const id = listItem.getId()
@@ -14,10 +6,10 @@ const hiddenDocTypes = (listItem: ListItemBuilder) => {
     return false
   }
 
-  return !['home', 'media.tag', 'tag', 'project', 'settings', 'infos'].includes(id)
+  return !['home', 'landing', 'media.tag', 'project', 'settings', 'tag', 'infos'].includes(id)
 }
 
-export const structure: StructureResolver = (S) =>
+export const structure = (S) =>
   S.list()
     .title('Base')
     .items([
@@ -37,39 +29,46 @@ export const structure: StructureResolver = (S) =>
         .schemaType('home')
         .child(S.editor().title('Home').schemaType('home').documentId('home')),
 
-      S.listItem()
-        .title('Infos')
-        .schemaType('infos')
-        .child(S.editor().title('Infos').schemaType('infos').documentId('infos')),
+      S.divider(),
+
+      // S.listItem()
+      //   .title('Projects')
+      //   .schemaType('project')
+      //   .child(S.editor().title('Project').schemaType('project').documentId('project')),
+      // S.divider(),
+
+      // S.listItem().title('Projects').schemaType('project').child(S.documentTypeList('project')),
+      S.listItem().title('Projects').schemaType('project').child(S.documentTypeList('project')),
+
+      // S.divider(),
 
       // S.divider(),
 
       // S.listItem().title('Projects').schemaType('project').child(S.documentTypeList('project')),
 
-      S.divider(),
+      // S.divider(),
 
       /**
        * with seo preview
        */
-      S.listItem()
-        .title('Projets')
-        .schemaType('project')
-        .child(
-          S.documentTypeList('project').child((id) =>
-            S.document()
-              .schemaType('project')
-              .documentId(id)
-              .views([
-                // The default form for editing a document
-                S.view.form(),
 
-                // Render the current selected document’s values as JSON
-                S.view.component(SeoPreview).title('Seo preview').options({previewURL}),
-              ]),
-          ),
-        ),
-      // S.listItem().title('Projets').schemaType('project').child(S.documentTypeList('project')),
-      S.listItem().title('Tags').schemaType('tag').child(S.documentTypeList('tag')),
+      // S.listItem()
+      //   .title('Projets liste')
+      //   .schemaType('project')
+      //   .child(
+      //     S.documentTypeList('project').child((id) =>
+      //       S.document().schemaType('project').documentId(id).views([
+      //         // The default form for editing a document
+      //         S.view.form(),
+
+      //         // Render the current selected document’s values as JSON
+      //         // S.view.component(SeoPreview).title('Seo preview').options({previewURL}),
+      //       ]),
+      //     ),
+      //   ),
+
+      // S.listItem().title('Tags').schemaType('tag').child(S.documentTypeList('tag')),
+      // S.divider(),
 
       // We also need to remove the new singletons from the main list
       ...S.documentTypeListItems().filter(hiddenDocTypes),

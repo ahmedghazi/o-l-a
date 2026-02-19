@@ -1,0 +1,40 @@
+@mixin center_it {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin anime($duration: 0.2s, $delay: 0s) {
+  transition: all $duration ease-out $delay;
+  @include bezier;
+}
+@mixin bezier {
+  transition-timing-function: cubic-bezier(0.37, 0.01, 0, 0.98);
+}
+
+@mixin scrollbars($size, $foreground-color, $background-color) {
+  &::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+    padding: 1px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+    border-radius: calc(#{$size} / 2);
+  }
+  &::-webkit-scrollbar-track {
+    background: $background-color;
+  }
+}
+
+$browser-context: 14;
+@function em($pixels, $context: $browser-context) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+  @return calc($pixels / $context) * 1em;
+}

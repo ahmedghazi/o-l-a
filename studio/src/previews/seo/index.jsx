@@ -22,10 +22,25 @@ class SeoPreviews extends React.PureComponent {
     console.log(displayed)
     return (
       <>
-        {/* <pre>{JSON.stringify(options)}</pre> */}
-        <GoogleSearchResult document={displayed} options={options} />
-        <TwitterCard document={displayed} options={options} />
-        <FacebookShare document={displayed} options={options} />
+        {/* <pre>{JSON.stringify(displayed.seo, null, 2)}</pre> */}
+
+        {!displayed.seo && (
+          <div
+            style={{
+              padding: '1em',
+            }}
+          >
+            Champs Seo requis
+          </div>
+        )}
+
+        {displayed.seo && (
+          <>
+            <GoogleSearchResult document={displayed} options={options} />
+            <TwitterCard document={displayed} options={options} />
+            <FacebookShare document={displayed} options={options} />
+          </>
+        )}
       </>
     )
   }

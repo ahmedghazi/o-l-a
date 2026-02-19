@@ -1,0 +1,56 @@
+@use 'mixins';
+
+html,
+body {
+  overflow: hidden;
+}
+body {
+  transition:
+    background-color 0.4s var(--cubic),
+    color 0.4s var(--cubic);
+}
+#page {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  // gap: var(--spacing-lg);
+
+  header,
+  main {
+    // padding: var(--spacing-lg) 0;
+  }
+  main {
+    grid-column: span 2 / span 2;
+  }
+  .smooth-scroller {
+    padding: var(--spacing-lg);
+    @include mixins.scrollbars(10px, var(--color-primary), var(--color-background));
+  }
+}
+main {
+  position: relative;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+.sm-only {
+  display: none;
+}
+@media all and (max-width: $md) {
+  .sm-only {
+    display: block;
+  }
+  .hidden-sm {
+    display: none;
+  }
+}
