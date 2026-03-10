@@ -1,8 +1,11 @@
 @use 'mixins';
 
+html {
+  background-color: var(--color-bg);
+}
 html,
 body {
-  overflow: hidden;
+  // overflow: hidden;
 }
 body {
   transition:
@@ -12,7 +15,8 @@ body {
 #page {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  // gap: var(--spacing-lg);
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm);
 
   header,
   main {
@@ -20,9 +24,16 @@ body {
   }
   main {
     grid-column: span 2 / span 2;
+    margin-bottom: var(--spacing-lg);
+    min-height: 100vh;
+    background-color: var(--color-bg);
+    z-index: 1;
+  }
+  footer {
+    grid-column: span 3 / span 3;
   }
   .smooth-scroller {
-    padding: var(--spacing-lg);
+    padding: var(--spacing-sm);
     @include mixins.scrollbars(10px, var(--color-primary), var(--color-background));
   }
 }
@@ -52,5 +63,11 @@ main {
   }
   .hidden-sm {
     display: none;
+  }
+  #page {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    .smooth-scroller {
+      padding: var(--spacing-md);
+    }
   }
 }

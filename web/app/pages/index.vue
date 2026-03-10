@@ -16,21 +16,19 @@ const pageData = data.value || ({} as Home)
 const seo = pageData.seo || ({} as Seo)
 
 const randomIndex = useState('homeRandomIndex', () =>
-  Math.floor(Math.random() * (data.value?.randomImages?.length ?? 0))
+  Math.floor(Math.random() * (data.value?.randomImages?.length ?? 0)),
 )
 const randomImage = data.value?.randomImages?.[randomIndex.value]
 useHead({
-  title: data.value?.seo?.metaTitle || "Olivier Lellouche Design Workshop",
-  meta: [
-    { name: "description", content: data.value?.seo?.metaDescription || "" },
-  ],
-});
+  title: data.value?.seo?.metaTitle || 'Olivier Lellouche Design Workshop',
+  meta: [{ name: 'description', content: data.value?.seo?.metaDescription || '' }],
+})
 </script>
 
 <template>
   <div class="content content--home">
-    <SmoothScroller v-if="data?.randomImages?.length">
-      <SanityImage :image="randomImage" />
-    </SmoothScroller>
+    <!-- <SmoothScroller v-if="data?.randomImages?.length"> -->
+    <SanityImage :image="randomImage" />
+    <!-- </SmoothScroller> -->
   </div>
 </template>

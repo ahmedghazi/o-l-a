@@ -26,21 +26,21 @@ useHead({
 </script>
 
 <template>
-  <SmoothScroller>
-    <div class="template--project">
-      <template v-if="data">
-        <div class="mb-md">
-          <ProjectHeader :input="data" />
+  <!-- <SmoothScroller> -->
+  <div class="template--project">
+    <template v-if="data">
+      <div class="mb-md">
+        <ProjectHeader :input="data" />
+      </div>
+      <div class="images grid gap-md">
+        <div class="images__item" v-for="item in data.media" :key="item._key">
+          <SanityImage :image="item" :alt="data.title" />
         </div>
-        <div class="images gap-md grid">
-          <div class="images__item" v-for="item in data.media" :key="item._key">
-            <SanityImage :image="item" :alt="data.title" />
-          </div>
-        </div>
-      </template>
-      <div v-else>please edit page</div>
-    </div>
-  </SmoothScroller>
+      </div>
+    </template>
+    <div v-else>please edit page</div>
+  </div>
+  <!-- </SmoothScroller> -->
 </template>
 
 <style>

@@ -1,7 +1,5 @@
 <template>
   <div class="logo-acronyme">
-    <!-- <pre>{{ splitText }}</pre> -->
-    <!-- <span v-for="letter in splitText" :key="letter">{{ letter }}</span> -->
     <span v-for="item in splitText" :key="item.accr">
       <span class="accr">{{ item.accr }}</span>
       <span class="leftover">{{ item.leftover }}</span>
@@ -24,7 +22,6 @@ const splitText = computed(() => {
     }
   })
 })
-console.log(splitText.value)
 </script>
 
 <style scoped lang="scss">
