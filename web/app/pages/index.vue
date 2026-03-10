@@ -15,10 +15,10 @@ if (!data.value) {
 const pageData = data.value || ({} as Home)
 const seo = pageData.seo || ({} as Seo)
 
-const randomImage =
-  data.value?.randomImages?.[
-    Math.floor(Math.random() * data.value?.randomImages?.length)
-  ];
+const randomIndex = useState('homeRandomIndex', () =>
+  Math.floor(Math.random() * (data.value?.randomImages?.length ?? 0))
+)
+const randomImage = data.value?.randomImages?.[randomIndex.value]
 useHead({
   title: data.value?.seo?.metaTitle || "Olivier Lellouche Design Workshop",
   meta: [

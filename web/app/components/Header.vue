@@ -3,8 +3,11 @@
     <SmoothScroller>
       <aside>
         <div class="site-name">
-          <NuxtLink to="/">{{ settings?.siteName }}</NuxtLink>
+          <NuxtLink to="/">
+            <LogoAcronyme :input="settings?.siteName" />
+          </NuxtLink>
         </div>
+
         <nav>
           <ul>
             <li v-for="item in settings?.nav" :key="item._id">

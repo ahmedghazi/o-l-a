@@ -1,8 +1,8 @@
 <template>
   <div class="project-header">
     <h2 class="project-header__title">{{ input.title }}</h2>
-    <div class="project-header__materials">{{ input.materials }}</div>
-    <div class="project-header__localisation">{{ input.localisation }}</div>
+    <div class="project-header__materials">{{ input.materials || 'Materials' }}</div>
+    <div class="project-header__localisation">{{ input.localisation || 'Localisation' }}</div>
   </div>
 </template>
 
@@ -18,11 +18,12 @@ defineProps<{
 .project-header {
   &__title {
   }
-  // &__location {
-  //   text-align: right;
-  // }
-  // &__materials {
-  //   text-align: center;
-  // }
+  &__localisation {
+    // text-align: right;
+  }
+  &__materials {
+    // text-align: center;
+    text-indent: 1.5rem;
+  }
 }
 </style>
