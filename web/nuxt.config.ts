@@ -20,15 +20,17 @@ export default defineNuxtConfig({
     useCdn: true, // `false` if you want to ensure fresh data
     apiVersion: process.env.NUXT_PUBLIC_SANITY_API_VERSION || '2024-03-15',
     globalHelper: true,
+    // liveContent: {
+    //   browserToken: process.env.NUXT_SANITY_API_READ_TOKEN,
+    //   serverToken: process.env.NUXT_SANITY_API_READ_TOKEN,
+    // },
     // visualEditing: {
     //   studioUrl: process.env.NUXT_PUBLIC_SANITY_STUDIO_URL || 'http://localhost:3333',
     //   token: process.env.NUXT_SANITY_API_READ_TOKEN,
     //   zIndex: 9999,
-    //   // stega: true,
     // },
     typegen: {
-      enabled: true,
-      schemaTypesPath: '~/types/schema-typegen.ts',
+      enabled: false,
     },
   },
   app: {
@@ -44,12 +46,27 @@ export default defineNuxtConfig({
   css: ['~/assets/styles/index.scss'],
 
   vite: {
-    optimizeDeps: {
-      exclude: ['@sanity/visual-editing'],
-    },
-    ssr: {
-      external: ['react', 'react-dom', 'react/jsx-runtime'],
-    },
+    // resolve: {
+    //   alias: [
+    //     { find: /^lodash\/(.+)\.js$/, replacement: 'lodash-es/$1.js' },
+    //     { find: /^lodash\/(.+)$/, replacement: 'lodash-es/$1' },
+    //   ],
+    // },
+    // optimizeDeps: {
+    //   include: [
+    //     '@sanity/visual-editing',
+    //     '@sanity/mutate',
+    //     'react',
+    //     'react-dom',
+    //     'react/compiler-runtime',
+    //     'react/jsx-runtime',
+    //     'styled-components',
+    //   ],
+    // },
+    // ssr: {
+    //   external: ['react', 'react-dom', 'react/jsx-runtime', 'react/compiler-runtime', 'styled-components'],
+    //   noExternal: ['lodash-es'],
+    // },
     css: {
       preprocessorOptions: {
         scss: {

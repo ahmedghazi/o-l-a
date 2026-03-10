@@ -32,8 +32,8 @@ export default defineConfig({
       previewUrl: {
         origin: previewURL,
         previewMode: {
-          enable: '/api/preview',
-          disable: '/api/exit-preview',
+          enable: '/preview/enable',
+          disable: '/preview/disable',
         },
       },
     }),

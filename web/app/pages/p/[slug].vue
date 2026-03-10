@@ -2,7 +2,7 @@
 // import { PortableText } from '@portabletext/vue'
 import ProjectHeader from '~/components/ProjectHeader.vue'
 import { PROJECT_QUERY } from '~/lib/queries'
-import type { Project, Seo } from '~~/types/schema'
+import type { Project, Seo } from '~/types/schema'
 const route = useRoute()
 const { data, refresh } = await useSanityQuery<Project>(PROJECT_QUERY, {
   slug: route.params.slug,
@@ -27,12 +27,12 @@ useHead({
 
 <template>
   <!-- <SmoothScroller> -->
-  <div class="template--project">
+  <div class="template template--project">
     <template v-if="data">
       <div class="mb-md">
         <ProjectHeader :input="data" />
       </div>
-      <div class="images grid gap-md">
+      <div class="images grid gap-sm md:gap-md">
         <div class="images__item" v-for="item in data.media" :key="item._key">
           <SanityImage :image="item" :alt="data.title" />
         </div>

@@ -1,6 +1,6 @@
 <template>
-  <footer>
-    <div class="grid gap-md md:grid-cols-3">
+  <footer id="footer-size">
+    <div class="grid gap-sm md:grid-cols-3 md:gap-md">
       <div class="copy">{{ yearInWords(year) }} © {{ settings?.siteName }}</div>
       <div class="credits">
         Credits: Designed by
@@ -8,7 +8,7 @@
         <a href="https://www.ahmedghazi.com" target="_blank">Ahmed Ghazi</a> Pictures by
         <a href="#" target="_blank">Iphone SE</a>
       </div>
-      <div class="maj text-right">Updated on March 2, 26 02:26</div>
+      <div class="maj md:text-right">Updated on {{ settings._updatedAt }}</div>
     </div>
   </footer>
 </template>
@@ -18,7 +18,7 @@ import { _linkResolver } from '~/lib/utils'
 import { yearInWords } from '~/lib/yearInWords'
 
 const { data: settings } = await useSanitySettings()
-// console.log(settings);
+console.log(settings)
 const year = parseFloat(new Date().getFullYear().toString()) // 2026
 
 // const yearInWords = new Intl.NumberFormat('fr-FR-u-nu-fullwide', {}).format(year)
@@ -31,5 +31,8 @@ footer {
   display: block;
   position: sticky;
   bottom: 0;
+  @media screen and (max-width: 768px) {
+    padding: 0;
+  }
 }
 </style>

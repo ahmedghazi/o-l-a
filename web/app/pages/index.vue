@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { HOME_QUERY } from '~/lib/queries'
-import type { Home, Seo } from '~~/types/schema'
+import type { Home, Seo } from '~/types/schema'
+// import type { Home, Seo } from '~~/types/schema'
 
 const { data, refresh } = await useSanityQuery<Home>(HOME_QUERY)
 
@@ -26,7 +27,7 @@ useHead({
 </script>
 
 <template>
-  <div class="content content--home">
+  <div class="template template--home">
     <!-- <SmoothScroller v-if="data?.randomImages?.length"> -->
     <SanityImage :image="randomImage" />
     <!-- </SmoothScroller> -->

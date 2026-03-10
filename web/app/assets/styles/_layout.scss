@@ -13,11 +13,14 @@ body {
     color 0.4s var(--cubic);
 }
 #page {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--spacing-md);
+  // display: grid;
+  // grid-template-columns: repeat(3, minmax(0, 1fr));
+  // gap: var(--spacing-md);
   padding: var(--spacing-sm);
-
+  transition: opacity 0.4s var(--cubic);
+  &.is-loading {
+    opacity: 0;
+  }
   header,
   main {
     // padding: var(--spacing-lg) 0;
@@ -26,8 +29,20 @@ body {
     grid-column: span 2 / span 2;
     margin-bottom: var(--spacing-lg);
     min-height: 100vh;
-    background-color: var(--color-bg);
     z-index: 1;
+    .template {
+      background-color: var(--color-bg);
+    }
+    .gradient {
+      height: var(--spacing-xl);
+      // @include mixins.linear-gradient(to bottom, var(--color-bg), transparent);
+      $color: var(--color-bg);
+      $alpha: rgba($color, 0);
+      $half: rgba($color, 0.7);
+      // background: linear-gradient(to $direction, $color 0%, $half 50%, $alpha 100%);
+
+      background-image: linear-gradient(to bottom, $color 0%, $half 50%, $alpha 100%);
+    }
   }
   footer {
     grid-column: span 3 / span 3;
@@ -69,5 +84,8 @@ main {
     .smooth-scroller {
       padding: var(--spacing-md);
     }
+  }
+  main {
+    padding-top: var(--header-h);
   }
 }

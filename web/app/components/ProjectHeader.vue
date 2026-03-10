@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Project } from '~~/types/schema'
+import type { Project } from '~/types/schema'
 
 defineProps<{
   input: Project
@@ -16,6 +16,7 @@ defineProps<{
 
 <style lang="scss">
 .project-header {
+  text-transform: uppercase;
   &__title {
   }
   &__localisation {
