@@ -5,7 +5,3 @@
 - cursor
 
 # DONE
-
-— backoffice preview
-— home random images
-— page project

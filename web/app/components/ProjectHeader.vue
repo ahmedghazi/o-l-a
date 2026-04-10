@@ -1,11 +1,3 @@
-<template>
-  <div class="project-header">
-    <h2 class="project-header__title">{{ input.title }}</h2>
-    <div class="project-header__materials">{{ input.materials || 'Materials' }}</div>
-    <div class="project-header__localisation">{{ input.localisation || 'Localisation' }}</div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import type { Project } from '~/types/schema'
 
@@ -13,6 +5,14 @@ defineProps<{
   input: Project
 }>()
 </script>
+
+<template>
+  <div class="project-header">
+    <h2 class="project-header__title">{{ input.title }}</h2>
+    <div class="project-header__materials">{{ input.materials || 'Materials' }}</div>
+    <div class="project-header__localisation">{{ input.localisation || 'Localisation' }}</div>
+  </div>
+</template>
 
 <style lang="scss">
 .project-header {

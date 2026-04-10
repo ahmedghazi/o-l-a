@@ -1,11 +1,3 @@
-<template>
-  <div ref="wrapperRef" class="smooth-scroller h-screen overflow-y-scroll">
-    <div ref="contentRef" class="scroller flex">
-      <slot />
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import Lenis from 'lenis'
 
@@ -37,3 +29,11 @@ onMounted(() => {
   })
 })
 </script>
+
+<template>
+  <div ref="wrapperRef" class="smooth-scroller h-screen overflow-y-scroll">
+    <div ref="contentRef" class="scroller flex">
+      <slot />
+    </div>
+  </div>
+</template>

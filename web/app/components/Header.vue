@@ -1,44 +1,3 @@
-<template>
-  <header id="header-site">
-    <!-- <SmoothScroller> -->
-    <aside>
-      <div class="top">
-        <div class="site-name">
-          <NuxtLink to="/">
-            <LogoAcronyme :input="settings?.siteName" />
-          </NuxtLink>
-        </div>
-        <ul class="socials hidden-sm">
-          <li v-for="social in settings?.socials" :key="social._id">
-            <NuxtLink :to="social.url">
-              {{ social.name }}
-            </NuxtLink>
-          </li>
-        </ul>
-        <button class="sm-only" @click="_toggle(!isOpen)">{{ isOpen ? 'Close' : 'Menu' }}</button>
-      </div>
-
-      <nav :class="{ 'is-open': isOpen === true }">
-        <ul>
-          <li v-for="item in settings?.nav" :key="item._id">
-            <NuxtLink :to="_linkResolver(item)">
-              <ProjectHeader :input="item" />
-            </NuxtLink>
-          </li>
-        </ul>
-        <ul class="socials sm-only">
-          <li v-for="social in settings?.socials" :key="social._id">
-            <NuxtLink :to="social.url">
-              {{ social.name }}
-            </NuxtLink>
-          </li>
-        </ul>
-      </nav>
-    </aside>
-    <!-- </SmoothScroller> -->
-  </header>
-</template>
-
 <script setup lang="ts">
 import { _linkResolver } from '~/lib/utils'
 
@@ -61,18 +20,74 @@ watch(
 )
 </script>
 
+<template>
+  <header id="header-site">
+    <!-- <SmoothScroller> -->
+    <aside>
+      <div class="top">
+        <div class="site-name">
+          <NuxtLink to="/">
+            <LogoAcronyme :input="settings?.siteName" />
+          </NuxtLink>
+        </div>
+        <ul v-if="settings?.socials && settings.socials.length > 0" class="socials hidden-sm">
+          <li v-for="social in settings?.socials" :key="social._id">
+            <NuxtLink :to="social.url">
+              {{ social.name }}
+            </NuxtLink>
+          </li>
+        </ul>
+        <button class="sm-only" @click="_toggle(!isOpen)">{{ isOpen ? 'Close' : 'Menu' }}</button>
+      </div>
+
+      <nav :class="{ 'is-open': isOpen === true, 'hide-sb': true }">
+        <ul>
+          <li v-for="item in settings?.nav" :key="item._id">
+            <NuxtLink :to="_linkResolver(item)">
+              <ProjectHeader :input="item" />
+            </NuxtLink>
+          </li>
+          <li v-for="item in settings?.nav" :key="item._id">
+            <NuxtLink :to="_linkResolver(item)">
+              <ProjectHeader :input="item" />
+            </NuxtLink>
+          </li>
+        </ul>
+        <ul v-if="settings?.socials && settings.socials.length > 0" class="socials sm-only">
+          <li v-for="social in settings?.socials" :key="social._id">
+            <NuxtLink :to="social.url">
+              {{ social.name }}
+            </NuxtLink>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+    <!-- </SmoothScroller> -->
+  </header>
+</template>
+
 <style lang="scss" scoped>
 header {
   text-transform: uppercase;
+  --gap: calc(var(--spacing-lg) * 1.65);
+  --top-h: calc(var(--gap) + 1.2em);
 }
 aside {
   position: sticky;
   top: var(--spacing-sm);
 }
+
 .top {
-  margin-bottom: calc(var(--spacing-lg) * 1.65);
+  margin-bottom: var(--gap);
   display: flex;
   justify-content: space-between;
+  position: sticky;
+  top: 0;
+}
+nav {
+  height: calc(100dvh - calc(var(--footer-h) + var(--top-h) + var(--spacing-sm)));
+  overflow-y: auto;
+  padding-bottom: calc(var(--footer-h) + 1em);
 }
 .site-name {
 }

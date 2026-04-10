@@ -61,6 +61,13 @@ export default defineType({
       type: 'blockContent',
       group: 'editorial',
     }),
+    defineField({
+      name: 'links',
+      title: 'Liens',
+      type: 'array',
+      of: [{type: 'linkExternal'}],
+      group: 'editorial',
+    }),
     // defineField({
     //   name: 'coverImage',
     //   title: 'Cover image',

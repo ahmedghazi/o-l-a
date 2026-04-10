@@ -1,7 +1,8 @@
 <script setup lang="ts">
 // import { PortableText } from '@portabletext/vue'
+import { PortableText } from '@portabletext/vue'
 import ProjectHeader from '~/components/ProjectHeader.vue'
-import ExcertToText from '~/components/ui/ExcertToText.vue'
+// import ExcertToText from '~/components/ui/ExcertToText.vue'
 import { PROJECT_QUERY } from '~/lib/queries'
 import type { Project, Seo } from '~/types/schema'
 const route = useRoute()
@@ -32,8 +33,18 @@ useHead({
     <template v-if="data">
       <div class="mb-md">
         <ProjectHeader :input="data" />
-        <div v-if="data.text" class="mt-md">
-          <ExcertToText :content="data.text" />
+        <div v-if="data.text || data.links" class="mt-md">
+          <!-- <ExcertToText :content="data.text" /> -->
+          <div class="grid md:grid-cols-4">
+            <div v-if="data.text" class="col-span-3">
+              <PortableText :value="data.text" />
+            </div>
+            <ul v-if="data.links">
+              <li v-for="link in data.links" :key="link._key">
+                <a :href="link.link" target="_blank">{{ link.label }}</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
       <div class="images grid gap-sm md:gap-md">

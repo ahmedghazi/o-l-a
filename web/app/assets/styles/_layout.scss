@@ -27,8 +27,8 @@ body {
   }
   main {
     grid-column: span 2 / span 2;
-    margin-bottom: var(--spacing-lg);
-    min-height: 100vh;
+    padding-bottom: var(--spacing-lg);
+    min-height: calc(100dvh - calc(var(--footer-h) - var(--spacing-md)));
     z-index: 1;
     .template {
       background-color: var(--color-bg);
@@ -84,8 +84,9 @@ main {
     .smooth-scroller {
       padding: var(--spacing-md);
     }
-  }
-  main {
-    padding-top: var(--header-h);
+    main {
+      padding-top: var(--header-h);
+      min-height: calc(100dvh - calc(var(--header-h) + var(--footer-h) - var(--spacing-md)));
+    }
   }
 }

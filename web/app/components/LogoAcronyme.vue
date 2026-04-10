@@ -1,12 +1,3 @@
-<template>
-  <div class="logo-acronyme">
-    <span v-for="item in splitText" :key="item.accr">
-      <span class="accr">{{ item.accr }}</span>
-      <span class="leftover">{{ item.leftover }}</span>
-    </span>
-  </div>
-</template>
-
 <script setup lang="ts">
 const props = defineProps<{
   input: string
@@ -23,6 +14,15 @@ const splitText = computed(() => {
   })
 })
 </script>
+
+<template>
+  <div class="logo-acronyme">
+    <span v-for="item in splitText" :key="item.accr">
+      <span class="accr">{{ item.accr }}</span>
+      <span class="leftover">{{ item.leftover }}</span>
+    </span>
+  </div>
+</template>
 
 <style scoped lang="scss">
 .logo-acronyme {

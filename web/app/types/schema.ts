@@ -231,6 +231,13 @@ export interface Project extends SanityDocument {
   text?: BlockContent
 
   /**
+   * Liens — `array`
+   *
+   *
+   */
+  links?: Array<SanityKeyed<LinkExternal>>
+
+  /**
    * media — `array`
    *
    *

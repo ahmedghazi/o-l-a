@@ -11,8 +11,17 @@ video {
   height: 100%;
 }
 
-
-img{
+img {
   max-width: 100%;
   max-height: 90dvh;
+}
+
+/* All browsers */
+.hide-sb {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.hide-sb::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
 }

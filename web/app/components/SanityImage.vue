@@ -1,3 +1,12 @@
+<script setup lang="ts">
+import { urlFor } from '~/lib/sanity'
+
+defineProps<{
+  image: any
+  alt?: string
+}>()
+</script>
+
 <template>
   <figure>
     <img
@@ -8,12 +17,3 @@
     />
   </figure>
 </template>
-
-<script setup lang="ts">
-import { urlFor } from '~/lib/sanity'
-
-defineProps<{
-  image: any
-  alt?: string
-}>()
-</script>
