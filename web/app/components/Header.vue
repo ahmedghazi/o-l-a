@@ -128,6 +128,7 @@ nav li {
     inset: 0;
     padding: var(--spacing-sm);
     padding-top: calc(var(--header-h) + var(--spacing-sm));
+    height: calc(100dvh - calc(var(--header-h) + var(--spacing-sm)));
     background: #fff;
     display: none;
     z-index: 0;
