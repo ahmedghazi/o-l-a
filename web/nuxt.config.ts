@@ -13,24 +13,37 @@ export default defineNuxtConfig({
     },
   },
 
+  // sanity: {
+  //   // minimal: false,
+  //   projectId: process.env.NUXT_PUBLIC_SANITY_PROJECT_ID,
+  //   dataset: process.env.NUXT_PUBLIC_SANITY_DATASET,
+  //   useCdn: true, // `false` if you want to ensure fresh data
+  //   apiVersion: process.env.NUXT_PUBLIC_SANITY_API_VERSION || '2024-03-15',
+  //   globalHelper: true,
+  //   // liveContent: {
+  //   //   browserToken: process.env.NUXT_SANITY_API_READ_TOKEN,
+  //   //   serverToken: process.env.NUXT_SANITY_API_READ_TOKEN,
+  //   // },
+  //   // visualEditing: {
+  //   //   studioUrl: process.env.NUXT_PUBLIC_SANITY_STUDIO_URL || 'http://localhost:3333',
+  //   //   token: process.env.NUXT_SANITY_API_READ_TOKEN,
+  //   //   zIndex: 9999,
+  //   // },
+  //   typegen: {
+  //     enabled: false,
+  //   },
+  // },
   sanity: {
-    // minimal: false,
     projectId: process.env.NUXT_PUBLIC_SANITY_PROJECT_ID,
-    dataset: process.env.NUXT_PUBLIC_SANITY_DATASET,
-    useCdn: true, // `false` if you want to ensure fresh data
-    apiVersion: process.env.NUXT_PUBLIC_SANITY_API_VERSION || '2024-03-15',
-    globalHelper: true,
-    // liveContent: {
-    //   browserToken: process.env.NUXT_SANITY_API_READ_TOKEN,
-    //   serverToken: process.env.NUXT_SANITY_API_READ_TOKEN,
-    // },
-    // visualEditing: {
-    //   studioUrl: process.env.NUXT_PUBLIC_SANITY_STUDIO_URL || 'http://localhost:3333',
-    //   token: process.env.NUXT_SANITY_API_READ_TOKEN,
-    //   zIndex: 9999,
-    // },
-    typegen: {
-      enabled: false,
+    dataset: process.env.NUXT_PUBLIC_SANITY_DATASET || 'production',
+    apiVersion: process.env.NUXT_PUBLIC_SANITY_API_VERSION || '2025-10-20',
+    token: process.env.NUXT_SANITY_API_READ_TOKEN, // Only required when using a private dataset
+    visualEditing: {
+      token: process.env.NUXT_SANITY_API_READ_TOKEN,
+      studioUrl: process.env.NUXT_PUBLIC_SANITY_STUDIO_URL,
+      stega: true,
+      mode: 'live-visual-editing',
+      zIndex: 51,
     },
   },
   app: {
