@@ -17,6 +17,7 @@ export const schemaTypes = [
   infos,
   post,
   tag,
+
   blockContent,
   linkInternal,
   linkExternal,

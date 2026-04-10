@@ -15,7 +15,7 @@ import type {
   SanityImageDimensions,
   SanityImagePalette,
   SanityImagePaletteSwatch,
-} from "sanity-codegen";
+} from 'sanity-codegen'
 
 export type {
   SanityReference,
@@ -34,7 +34,7 @@ export type {
   SanityImageDimensions,
   SanityImagePalette,
   SanityImagePaletteSwatch,
-};
+}
 
 /**
  * Home
@@ -42,28 +42,28 @@ export type {
  *
  */
 export interface Home extends SanityDocument {
-  _type: "home";
+  _type: 'home'
 
   /**
    * seo — `seo`
    *
    *
    */
-  seo?: Seo;
+  seo?: Seo
 
   /**
    * Titre — `string`
    *
    *
    */
-  title?: string;
+  title?: string
 
   /**
    * Slug — `slug`
    *
    * URL basée sur le titre (sans espace ni caractère autre que a-z-0-9
    */
-  slug?: { _type: "slug"; current: string };
+  slug?: { _type: 'slug'; current: string }
 
   /**
    * Image aléatoire — `array`
@@ -72,12 +72,12 @@ export interface Home extends SanityDocument {
    */
   randomImages?: Array<
     SanityKeyed<{
-      _type: "image";
-      asset: SanityReference<SanityImageAsset>;
-      crop?: SanityImageCrop;
-      hotspot?: SanityImageHotspot;
+      _type: 'image'
+      asset: SanityReference<SanityImageAsset>
+      crop?: SanityImageCrop
+      hotspot?: SanityImageHotspot
     }>
-  >;
+  >
 }
 
 /**
@@ -86,35 +86,35 @@ export interface Home extends SanityDocument {
  *
  */
 export interface Settings extends SanityDocument {
-  _type: "settings";
+  _type: 'settings'
 
   /**
    * Nom du site — `string`
    *
    *
    */
-  siteName?: string;
+  siteName?: string
 
   /**
    * Nav — `array`
    *
    *
    */
-  nav?: Array<SanityKeyedReference<Project>>;
+  nav?: Array<SanityKeyedReference<Project>>
 
   /**
    * Message 404 — `blockContent`
    *
    *
    */
-  message404?: BlockContent;
+  message404?: BlockContent
 
   /**
    * customCss — `text`
    *
    *
    */
-  customCss?: string;
+  customCss?: string
 }
 
 /**
@@ -123,35 +123,35 @@ export interface Settings extends SanityDocument {
  *
  */
 export interface Infos extends SanityDocument {
-  _type: "infos";
+  _type: 'infos'
 
   /**
    * seo — `seo`
    *
    *
    */
-  seo?: Seo;
+  seo?: Seo
 
   /**
    * Title — `string`
    *
    *
    */
-  title?: string;
+  title?: string
 
   /**
    * Slug — `slug`
    *
    * URL based on the title (no space, or char other than a-z-0-9
    */
-  slug?: { _type: "slug"; current: string };
+  slug?: { _type: 'slug'; current: string }
 
   /**
    * Bio — `blockContent`
    *
    *
    */
-  bio?: BlockContent;
+  bio?: BlockContent
 
   /**
    * Image — `image`
@@ -159,18 +159,18 @@ export interface Infos extends SanityDocument {
    *
    */
   image?: {
-    _type: "image";
-    asset: SanityReference<SanityImageAsset>;
-    crop?: SanityImageCrop;
-    hotspot?: SanityImageHotspot;
-  };
+    _type: 'image'
+    asset: SanityReference<SanityImageAsset>
+    crop?: SanityImageCrop
+    hotspot?: SanityImageHotspot
+  }
 
   /**
    * CV — `array`
    *
    *
    */
-  cv?: Array<SanityKeyed<KeyValGroup>>;
+  cv?: Array<SanityKeyed<KeyValGroup>>
 }
 
 /**
@@ -179,49 +179,56 @@ export interface Infos extends SanityDocument {
  *
  */
 export interface Project extends SanityDocument {
-  _type: "project";
+  _type: 'project'
 
   /**
    * seo — `seo`
    *
    *
    */
-  seo?: Seo;
+  seo?: Seo
 
   /**
    * Title — `string`
    *
    *
    */
-  title?: string;
+  title?: string
 
   /**
    * Slug — `slug`
    *
    *
    */
-  slug?: { _type: "slug"; current: string };
+  slug?: { _type: 'slug'; current: string }
 
   /**
    * Localisation — `string`
    *
    *
    */
-  localisation?: string;
+  localisation?: string
 
   /**
    * materials — `string`
    *
    *
    */
-  materials?: string;
+  materials?: string
 
   /**
    * Year — `date`
    *
    *
    */
-  year?: string;
+  year?: string
+
+  /**
+   * Text — `blockContent`
+   *
+   *
+   */
+  text?: BlockContent
 
   /**
    * media — `array`
@@ -230,12 +237,12 @@ export interface Project extends SanityDocument {
    */
   media?: Array<
     SanityKeyed<{
-      _type: "image";
-      asset: SanityReference<SanityImageAsset>;
-      crop?: SanityImageCrop;
-      hotspot?: SanityImageHotspot;
+      _type: 'image'
+      asset: SanityReference<SanityImageAsset>
+      crop?: SanityImageCrop
+      hotspot?: SanityImageHotspot
     }>
-  >;
+  >
 }
 
 /**
@@ -244,74 +251,74 @@ export interface Project extends SanityDocument {
  *
  */
 export interface Tag extends SanityDocument {
-  _type: "tag";
+  _type: 'tag'
 
   /**
    * Title — `string`
    *
    *
    */
-  title?: string;
+  title?: string
 
   /**
    * Description — `text`
    *
    *
    */
-  description?: string;
+  description?: string
 }
 
-export type BlockContent = Array<SanityKeyed<SanityBlock>>;
+export type BlockContent = Array<SanityKeyed<SanityBlock>>
 
 export type LinkInternal = {
-  _type: "linkInternal";
+  _type: 'linkInternal'
   /**
    * label — `string`
    *
    *
    */
-  label?: string;
+  label?: string
 
   /**
    * link — `reference`
    *
    *
    */
-  link?: SanityReference<Home | Project>;
-};
+  link?: SanityReference<Home | Project>
+}
 
 export type LinkExternal = {
-  _type: "linkExternal";
+  _type: 'linkExternal'
   /**
    * Label — `string`
    *
    *
    */
-  label?: string;
+  label?: string
 
   /**
    * Link — `string`
    *
    *
    */
-  link?: string;
-};
+  link?: string
+}
 
 export type Seo = {
-  _type: "seo";
+  _type: 'seo'
   /**
    * Meta title — `string`
    *
    *
    */
-  metaTitle?: string;
+  metaTitle?: string
 
   /**
    * Meta description — `string`
    *
    *
    */
-  metaDescription?: string;
+  metaDescription?: string
 
   /**
    * Meta image — `image`
@@ -319,52 +326,52 @@ export type Seo = {
    *
    */
   metaImage?: {
-    _type: "image";
-    asset: SanityReference<SanityImageAsset>;
-    crop?: SanityImageCrop;
-    hotspot?: SanityImageHotspot;
-  };
-};
+    _type: 'image'
+    asset: SanityReference<SanityImageAsset>
+    crop?: SanityImageCrop
+    hotspot?: SanityImageHotspot
+  }
+}
 
 export type KeyVal = {
-  _type: "keyVal";
+  _type: 'keyVal'
   /**
    * Accr — `string`
    *
    *
    */
-  accr?: string;
+  accr?: string
 
   /**
    * Label — `string`
    *
    *
    */
-  label?: string;
+  label?: string
 
   /**
    * Url — `string`
    *
    *
    */
-  url?: string;
-};
+  url?: string
+}
 
 export type KeyValGroup = {
-  _type: "keyValGroup";
+  _type: 'keyValGroup'
   /**
    * title — `string`
    *
    *
    */
-  title?: string;
+  title?: string
 
   /**
    * items — `array`
    *
    *
    */
-  items?: Array<SanityKeyed<KeyVal>>;
-};
+  items?: Array<SanityKeyed<KeyVal>>
+}
 
-export type Documents = Home | Settings | Infos | Project | Tag;
+export type Documents = Home | Settings | Infos | Project | Tag

@@ -55,6 +55,12 @@ export default defineType({
       title: 'Year',
       group: 'editorial',
     }),
+    defineField({
+      name: 'text',
+      title: 'Text',
+      type: 'blockContent',
+      group: 'editorial',
+    }),
     // defineField({
     //   name: 'coverImage',
     //   title: 'Cover image',
