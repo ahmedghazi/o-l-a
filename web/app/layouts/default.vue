@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted } from 'vue'
+import Canvasfavicon from '~/components/ui/Canvasfavicon.vue'
 
 onMounted(() => {
   _format()
@@ -48,5 +49,6 @@ function _format() {
       <div class="gradient"></div>
     </main>
     <Footer />
+    <Canvasfavicon :radius="64" />
   </div>
 </template>

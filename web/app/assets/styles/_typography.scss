@@ -41,6 +41,7 @@ a[aria-current='page'] {
   color: inherit;
   &:hover {
     // text-decoration: overline;
+    color: var(--color-secondary);
   }
 }
 
@@ -53,4 +54,9 @@ p,
   &:empty {
     display: none;
   }
+}
+
+::selection {
+  background-color: var(--color-secondary);
+  color: var(--color-secondary);
 }

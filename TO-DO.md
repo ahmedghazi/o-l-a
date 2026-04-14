@@ -1,7 +1,7 @@
 # TO DO
 
-— logo anyme
-
+- logo anyme
 - cursor
+- infos
 
 # DONE
