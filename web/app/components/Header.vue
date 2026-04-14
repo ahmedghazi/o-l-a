@@ -69,7 +69,7 @@ watch(
 <style lang="scss" scoped>
 header {
   text-transform: uppercase;
-  --gap: calc(var(--spacing-lg) * 1.65);
+  --gap: calc(var(--spacing-lg) * 1.74);
   --top-h: calc(var(--gap) + 1.2em);
 }
 aside {
@@ -78,7 +78,8 @@ aside {
 }
 
 .top {
-  margin-bottom: var(--gap);
+  // margin-bottom: var(--gap);
+  // margin-bottom: var(--gap);
   display: flex;
   justify-content: space-between;
   position: sticky;
@@ -88,6 +89,7 @@ nav {
   height: calc(100dvh - calc(var(--footer-h) + var(--top-h) + var(--spacing-sm)));
   overflow-y: auto;
   padding-bottom: calc(var(--footer-h) + 1em);
+  padding-top: var(--gap);
 }
 .site-name {
 }

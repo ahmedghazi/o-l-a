@@ -47,9 +47,9 @@ useHead({
           </div>
         </div>
       </div>
-      <div class="images grid gap-sm md:gap-md">
+      <div class="images grid gap-sm">
         <div class="images__item" v-for="item in data.media" :key="item._key">
-          <SanityImage :image="item" :alt="data.title" />
+          <SanityImage :image="item" :alt="data.title" :width="1920" />
         </div>
       </div>
     </template>
