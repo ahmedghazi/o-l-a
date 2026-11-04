@@ -1,6 +1,0 @@
-{
-  "installCommand": "corepack enable && pnpm install",
-  "buildCommand": "pnpm generate",
-  "outputDirectory": ".output/public",
-  "framework": "nuxtjs"
-}
