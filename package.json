@@ -1,0 +1,14 @@
+{
+  "name": "o-l-a",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "s": "cd studio && pnpm dev",
+    "l": "cd landing && pnpm dev",
+    "a": "cd les-arbres && pnpm dev",
+    "codegen": "cd studio && pnpm codegen",
+    "d": "git add . && git commit -m 'build it' && git push",
+    "d:p": "git add . && git commit -m 'build it' && git push origin preprod"
+  }
+}

@@ -1,0 +1,48 @@
+/* BASE VARIABLES
+ *******************/
+:root {
+  --app-height: 100%;
+  --header-height: 40px;
+  --color-bg: #eeeeee;
+  --color-primary: black;
+  --color-secondary: #002f6c;
+  --color-hover: #333;
+  --color-muted: #666;
+
+  --font-primary: helvetica, Arial, sans-serif;
+  --font-primary-i: helvetica, Arial, sans-serif;
+  --font-weight: 600;
+
+  --spacing-1e: 1em;
+  --spacing-xs: 5px;
+  --spacing-sm: 11px;
+  --spacing-sm: 9px;
+  --spacing-md: 21px;
+  --spacing-lg: 34px;
+  --spacing-xl: 55px;
+  --spacing-xxl: 240px;
+
+  --text-xs: 0.625rem;
+  --text-sm: 0.75rem;
+  --text-md: 1rem;
+  --text-lg: 1.5rem;
+  --text-xl: 2.5rem;
+
+  --cubic: cubic-bezier(0.775, 0, 0.17, 1.005);
+
+  --border-width: 1px;
+  --border: var(--border-width) solid;
+  --border-width-lg: 2px;
+  --border-lg: var(--border-width-lg) solid;
+
+  --gutter: 5px;
+
+  --screen-sm: 768px;
+  --screen-md: 1080px;
+  --screen-lg: 1441px;
+}
+
+/* Breakpoints */
+$sm: 768px;
+$md: 1080px;
+$lg: 1441px;
