@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/sanity'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/sanity', '@nuxtjs/i18n'],
 
   runtimeConfig: {
     sanityApiReadToken: '',
@@ -13,12 +13,24 @@ export default defineNuxtConfig({
       studioUrl: process.env.NUXT_PUBLIC_SANITY_STUDIO_URL,
     },
   },
-
+  i18n: {
+    defaultLocale: 'fr',
+    langDir: 'locales',
+    strategy: 'no_prefix',
+    detectBrowserLanguage: false,
+    locales: [
+      { code: 'fr', language: 'fr-FR', name: 'Français', file: 'fr.json' },
+      { code: 'en', language: 'en-US', name: 'English', file: 'en.json' },
+    ],
+  },
   sanity: {
     projectId: process.env.NUXT_PUBLIC_SANITY_PROJECT_ID,
     dataset: process.env.NUXT_PUBLIC_SANITY_DATASET || 'production',
     apiVersion: process.env.NUXT_PUBLIC_SANITY_API_VERSION || '2025-10-20',
     token: process.env.NUXT_SANITY_API_READ_TOKEN, // Only required when using a private dataset
+    liveContent: {
+      serverToken: process.env.NUXT_SANITY_API_READ_TOKEN,
+    },
     visualEditing: {
       token: process.env.NUXT_SANITY_API_READ_TOKEN,
       studioUrl: process.env.NUXT_PUBLIC_SANITY_STUDIO_URL,

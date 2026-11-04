@@ -19,6 +19,9 @@ export default defineNuxtConfig({
     dataset: process.env.NUXT_PUBLIC_SANITY_DATASET || 'production',
     apiVersion: process.env.NUXT_PUBLIC_SANITY_API_VERSION || '2025-10-20',
     token: process.env.NUXT_SANITY_API_READ_TOKEN, // Only required when using a private dataset
+    liveContent: {
+      serverToken: process.env.NUXT_SANITY_API_READ_TOKEN,
+    },
     visualEditing: {
       token: process.env.NUXT_SANITY_API_READ_TOKEN,
       studioUrl: process.env.NUXT_PUBLIC_SANITY_STUDIO_URL,

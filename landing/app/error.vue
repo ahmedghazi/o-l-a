@@ -1,6 +1,4 @@
 <script>
-import Header from "./components/Header.vue";
-
 export default {
   methods: {
     goBack() {
@@ -13,7 +11,6 @@ export default {
 <template>
   <NuxtLayout name="404">
     <div id="page">
-      <Header />
       <main>
         <div>
           <div class="text-4xl">Désolé la page demandée n'existe pas.</div>

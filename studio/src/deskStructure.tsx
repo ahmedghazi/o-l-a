@@ -25,6 +25,12 @@ export const structure = (S) =>
       S.divider(),
 
       S.listItem()
+        .title('Landing (hub)')
+        .schemaType('landing')
+        .child(S.editor().title('Landing (hub)').schemaType('landing').documentId('landing')),
+      S.divider(),
+
+      S.listItem()
         .title('Accueil')
         .schemaType('home')
         .child(S.editor().title('Home').schemaType('home').documentId('home')),

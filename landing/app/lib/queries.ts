@@ -11,7 +11,7 @@ const projectCard = `
   }
 `
 
-export const SETTINGS_QUERY = groq`*[_type == "settings"][0]{
+export const SETTINGS_QUERY = defineQuery(`*[_type == "settings"][0]{
   ...,
   nav[]->{
     _type == 'project' => {
@@ -27,9 +27,24 @@ export const SETTINGS_QUERY = groq`*[_type == "settings"][0]{
       }
     },
   },
-}`
+}`)
 
-export const HOME_QUERY = groq`*[_type == "home"][0]{
+export const LANDING_QUERY = defineQuery(`*[_type == "landing"][0]{
+  ...,
+  seo{
+    ...,
+    metaImage{
+      ...,
+      asset->
+    }
+  },
+  image{
+    ...,
+    asset->
+  }
+}`)
+
+export const HOME_QUERY = defineQuery(`*[_type == "home"][0]{
   ...,
   seo{
     ...,
@@ -42,9 +57,9 @@ export const HOME_QUERY = groq`*[_type == "home"][0]{
     ...,
     asset->
   }
-}`
+}`)
 
-export const PROJECT_QUERY = groq`*[_type == "project" && slug.current == $slug][0]{
+export const PROJECT_QUERY = defineQuery(`*[_type == "project" && slug.current == $slug][0]{
   ...,
   seo{
     ...,
@@ -60,9 +75,9 @@ export const PROJECT_QUERY = groq`*[_type == "project" && slug.current == $slug]
     ...,
     asset->
   }
-}`
+}`)
 
-export const INFOS_QUERY = groq`*[_type == "infos"][0]{
+export const INFOS_QUERY = defineQuery(`*[_type == "infos"][0]{
   ...,
   seo{
     ...,
@@ -71,4 +86,4 @@ export const INFOS_QUERY = groq`*[_type == "infos"][0]{
       asset->
     }
   }
-}`
+}`)

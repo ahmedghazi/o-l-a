@@ -20,7 +20,6 @@ function _format() {
 
   const header = document.querySelector('header#header-site')
   let headerBounding = { height: 50 }
-  console.log(header)
   if (header) {
     headerBounding = header.getBoundingClientRect()
     document.documentElement.style.setProperty('--header-h', headerBounding.height + 'px')
@@ -42,11 +41,9 @@ function _format() {
 </script>
 
 <template>
-  <div id="page" class="md: is-loading grid-cols-3 gap-md md:grid">
-    <Header />
+  <div id="page" class="is-loading-">
     <main>
       <slot />
-      <div class="gradient"></div>
     </main>
     <Footer />
     <Canvasfavicon :radius="64" />

@@ -37,6 +37,48 @@ export type {
 };
 
 /**
+ * Landing (hub)
+ *
+ *
+ */
+export interface Landing extends SanityDocument {
+  _type: "landing";
+
+  /**
+   * seo — `seo`
+   *
+   *
+   */
+  seo?: Seo;
+
+  /**
+   * Titre — `string`
+   *
+   *
+   */
+  title?: string;
+
+  /**
+   * Image  — `image`
+   *
+   *
+   */
+  image?: {
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
+
+  /**
+   * Text — `localeBlockContent`
+   *
+   *
+   */
+  text?: LocaleBlockContent;
+}
+
+/**
  * Home
  *
  *
@@ -381,4 +423,38 @@ export type KeyValGroup = {
   items?: Array<SanityKeyed<KeyVal>>;
 };
 
-export type Documents = Home | Settings | Infos | Project | Tag;
+export type LocaleBlockContent = {
+  _type: "localeBlockContent";
+  /**
+   * FR — `blockContent`
+   *
+   *
+   */
+  fr?: BlockContent;
+
+  /**
+   * English — `blockContent`
+   *
+   *
+   */
+  en?: BlockContent;
+};
+
+export type LocaleString = {
+  _type: "localeString";
+  /**
+   * FR — `string`
+   *
+   *
+   */
+  fr?: string;
+
+  /**
+   * English — `string`
+   *
+   *
+   */
+  en?: string;
+};
+
+export type Documents = Landing | Home | Settings | Infos | Project | Tag;

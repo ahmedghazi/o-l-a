@@ -40,7 +40,7 @@ export default defineType({
     defineField({
       name: 'text',
       title: 'Text',
-      type: 'blockContent',
+      type: 'localeBlockContent',
       group: 'editorial',
     }),
   ],

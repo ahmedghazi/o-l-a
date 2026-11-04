@@ -10,8 +10,12 @@ import linkExternal from './objects/linkExternal'
 import seo from './objects/seo'
 import keyVal from './objects/keyVal'
 import keyValGroup from './objects/keyValGroup'
+import landing from './singletons/landing'
+import localeBlockContent from './locale/localeBlockContent'
+import localeString from './locale/localeString'
 
 export const schemaTypes = [
+  landing,
   home,
   settings,
   infos,
@@ -24,6 +28,9 @@ export const schemaTypes = [
   seo,
   keyVal,
   keyValGroup,
+
+  localeBlockContent,
+  localeString,
 ]
 
 export default schemaTypes
