@@ -12,7 +12,7 @@ import { _linkResolver } from '~/lib/utils'
       <UiLocaleSwitcher />
     </div>
 
-    <ul>
+    <!-- <ul>
       <li>
         <a href="http://www.olivierlellouche.com/oldw" target="_blank" rel="noopener noreferrer"
           >Le bureau</a
@@ -37,7 +37,7 @@ import { _linkResolver } from '~/lib/utils'
           >Le plateau</a
         >
       </li>
-    </ul>
+    </ul> -->
   </footer>
 </template>
 
