@@ -56,6 +56,9 @@ ul {
 @media screen and (max-width: 768px) {
   footer {
     padding: 0;
+    ul {
+      flex-direction: column;
+    }
   }
 }
 </style>

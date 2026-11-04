@@ -27,12 +27,14 @@ useHead({
 
 <template>
   <div class="template template--landing">
-
     <div class="image">
       <SanityImage :image="data?.image" />
     </div>
     <div class="text">
-      <PortableText :value="$localizeField(data?.text) ?? []"  :components="portableTextComponents"/>
+      <PortableText
+        :value="$localizeField(data?.text) ?? []"
+        :components="portableTextComponents"
+      />
     </div>
   </div>
 </template>
@@ -40,6 +42,7 @@ useHead({
 <style scoped lang="scss">
 .template--landing {
   background-color: var(--color-bg);
+  padding: 0 var(--spacing-sm);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -51,7 +54,6 @@ useHead({
   }
   :deep(figure img) {
     max-height: 50vh;
-
   }
 
   .text {
