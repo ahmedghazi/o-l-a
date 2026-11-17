@@ -13,8 +13,10 @@ footer {
   padding: var(--spacing-sm);
   // width: 100%;
   display: block;
-  position: sticky;
+  position: fixed;
   bottom: 0;
+  left: 0;
+  right: 0;
   @media screen and (max-width: 768px) {
     padding: 0;
   }
@@ -24,14 +26,13 @@ footer {
 <template>
   <footer id="footer-site">
     <div class="grid items-end gap-sm md:grid-cols-3 md:gap-md">
-      <div class="copy">{{ yearInWords(year) }} © {{ settings?.siteName }}</div>
+      <div class="copy">{{ year }} © {{ settings?.siteName }}</div>
       <div class="credits">
         Credits: Designed by
         <a href="https://www.ahmedghazi.com" target="_blank">Ahmed Ghazi</a> Coded by
-        <a href="https://www.ahmedghazi.com" target="_blank">Ahmed Ghazi</a> Pictures by
-        <a href="#" target="_blank">Iphone SE</a>
+        <a href="https://www.ahmedghazi.com" target="_blank">Ahmed Ghazi</a>
       </div>
-      <div class="maj md:text-right">Updated on {{ settings._updatedAt }}</div>
+      <div class="maj hidden md:text-right">Updated on {{ settings._updatedAt }}</div>
     </div>
   </footer>
 </template>
