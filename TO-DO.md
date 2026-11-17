@@ -1,7 +1,5 @@
 # TO DO
 
-- logo anyme
-- cursor
-- infos
+- page txt
 
 # DONE

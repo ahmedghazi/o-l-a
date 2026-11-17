@@ -2,6 +2,7 @@
 import type { Project } from '~/types/schema'
 import { urlFor } from '~/lib/sanity'
 import type { ProjectExtend } from '~/types/schema-extend'
+import { PortableText } from '@portabletext/vue'
 
 const props = defineProps<{
   input: ProjectExtend
@@ -16,8 +17,11 @@ const props = defineProps<{
       <SanityImage :image="input.imageCover" :alt="input.title" :width="40" />
     </div>
     <template v-if="!collapsed">
-      <div class="project-header__materials">{{ input.materials || 'Materials' }}</div>
       <div class="project-header__localisation">{{ input.localisation || 'Localisation' }}</div>
+      <div v-if="input.text" class="project-header__text">
+        <PortableText :value="input.text" />
+      </div>
+      <div class="project-header__materials">{{ input.materials || 'Materials' }}</div>
     </template>
   </div>
 </template>
@@ -38,7 +42,8 @@ const props = defineProps<{
   }
 
   &__materials,
-  &__localisation {
+  &__localisation,
+  &__text {
     text-indent: 1.5rem;
   }
   figure {

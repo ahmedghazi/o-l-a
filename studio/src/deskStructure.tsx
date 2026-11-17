@@ -6,7 +6,17 @@ const hiddenDocTypes = (listItem: ListItemBuilder) => {
     return false
   }
 
-  return !['home', 'landing', 'media.tag', 'project', 'settings', 'tag', 'infos'].includes(id)
+  return ![
+    'home',
+    ,
+    'media.folder',
+    'landing',
+    'media.tag',
+    'project',
+    'settings',
+    'tag',
+    'infos',
+  ].includes(id)
 }
 
 export const structure = (S) =>
@@ -14,26 +24,22 @@ export const structure = (S) =>
     .title('Base')
     .items([
       S.listItem()
-        .title('Réglages (header, footer, ...)')
-        .schemaType('settings')
-        .child(
-          S.editor()
-            .title('Réglages (header, footer, ...)')
-            .schemaType('settings')
-            .documentId('settings'),
-        ),
-      S.divider(),
-
-      S.listItem()
-        .title('Landing (hub)')
+        .title('[HUB] Landing')
         .schemaType('landing')
-        .child(S.editor().title('Landing (hub)').schemaType('landing').documentId('landing')),
+        .child(S.editor().title('Landing').schemaType('landing').documentId('landing')),
       S.divider(),
 
       S.listItem()
-        .title('Accueil')
+        .title('[LA] Accueil')
         .schemaType('home')
         .child(S.editor().title('Home').schemaType('home').documentId('home')),
+
+      S.divider(),
+
+      S.listItem()
+        .title('[LA] Infos')
+        .schemaType('infos')
+        .child(S.editor().title('infos').schemaType('infos').documentId('infos')),
 
       S.divider(),
 
@@ -44,8 +50,22 @@ export const structure = (S) =>
       // S.divider(),
 
       // S.listItem().title('Projects').schemaType('project').child(S.documentTypeList('project')),
-      S.listItem().title('Projects').schemaType('project').child(S.documentTypeList('project')),
+      S.listItem()
+        .title('[LA] Projects')
+        .schemaType('project')
+        .child(S.documentTypeList('project')),
+      S.divider(),
 
+      S.listItem()
+        .title('[LA] Réglages (header, naviguation, footer, ...)')
+        .schemaType('settings')
+        .child(
+          S.editor()
+            .title('Réglages (header, footer, ...)')
+            .schemaType('settings')
+            .documentId('settings'),
+        ),
+      S.divider(),
       // S.divider(),
 
       // S.divider(),

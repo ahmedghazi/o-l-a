@@ -1,11 +1,10 @@
 import {defineField, defineType} from 'sanity'
-import {InfoOutlineIcon} from '@sanity/icons'
 
 export default defineType({
   name: 'infos',
   title: 'Infos',
   type: 'document',
-  icon: InfoOutlineIcon,
+  // icon: TbInfoSmall,
   groups: [
     {
       default: true,
@@ -48,19 +47,19 @@ export default defineType({
       type: 'blockContent',
       group: 'editorial',
     }),
-    defineField({
-      name: 'image',
-      title: 'Image',
-      type: 'image',
-      group: 'editorial',
-    }),
-    defineField({
-      name: 'cv',
-      title: 'CV',
-      type: 'array',
-      of: [{type: 'keyValGroup'}],
-      group: 'editorial',
-    }),
+    // defineField({
+    //   name: 'image',
+    //   title: 'Image',
+    //   type: 'image',
+    //   group: 'editorial',
+    // }),
+    // defineField({
+    //   name: 'cv',
+    //   title: 'CV',
+    //   type: 'array',
+    //   of: [{type: 'keyValGroup'}],
+    //   group: 'editorial',
+    // }),
   ],
   preview: {
     select: {

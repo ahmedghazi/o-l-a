@@ -1,12 +1,12 @@
+import {FiHome} from 'react-icons/fi'
 import {defineType, defineField} from 'sanity'
-import {HomeIcon} from '@sanity/icons'
 // console.log(modulesList)
 
 export default defineType({
   name: 'landing',
   type: 'document',
   title: 'Landing (hub)',
-  icon: HomeIcon,
+  icon: FiHome,
   groups: [
     {
       default: true,

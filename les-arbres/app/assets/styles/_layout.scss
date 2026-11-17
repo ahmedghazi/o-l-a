@@ -85,7 +85,8 @@ main {
       padding: var(--spacing-md);
     }
     main {
-      padding-top: var(--header-h);
+      padding-top: calc(var(--header-h) - var(--spacing-sm));
+      // padding-top: calc(var(--spacing-sm) + 1rem);
       min-height: calc(100dvh - calc(var(--header-h) + var(--footer-h) - var(--spacing-md)));
     }
   }

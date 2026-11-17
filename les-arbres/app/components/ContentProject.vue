@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { PortableText } from '@portabletext/vue'
 import type { Project, Seo } from '~/types/schema'
 
 defineProps<{
@@ -8,18 +9,13 @@ defineProps<{
 <template>
   <div class="content-project">
     <div class="header mb-md">
-      <ProjectHeader :input="data" />
+      <ProjectHeader :input="data" :collapsed="true" />
       <div v-if="data.text || data.links" class="mt-md-">
-        <div class="grid md:grid-cols-4">
-          <div v-if="data.text" class="col-span-3">
-            <PortableText :value="data.text" />
-          </div>
-          <ul v-if="data.links">
-            <li v-for="link in data.links" :key="link._key">
-              <a :href="link.link" target="_blank">{{ link.label }}</a>
-            </li>
-          </ul>
-        </div>
+        <ul v-if="data.links">
+          <li v-for="link in data.links" :key="link._key">
+            <a :href="link.link" target="_blank">{{ link.label }}</a>
+          </li>
+        </ul>
       </div>
     </div>
     <div class="images grid gap-sm">
@@ -39,5 +35,9 @@ defineProps<{
   top: var(--spacing-sm);
   color: white;
   mix-blend-mode: difference;
+  @media (max-width: 768px) {
+    top: var(--header-h);
+    margin-bottom: var(--spacing-sm);
+  }
 }
 </style>

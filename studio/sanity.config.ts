@@ -10,7 +10,7 @@ import {defaultDocumentNode} from './src/defaultDocumentNode'
 import {presentationTool} from 'sanity/presentation'
 import {linkResolver} from './src/linkResolver'
 
-const devOnlyPlugins = [getStartedPlugin()]
+// const devOnlyPlugins = [getStartedPlugin()]
 const remoteURL = 'https://o-l-a.vercel.app'
 const localURL = 'http://localhost:3000'
 const previewURL = window.location.hostname === 'localhost' ? localURL : remoteURL
@@ -36,7 +36,7 @@ export default defineConfig({
       },
     }),
     visionTool(),
-    ...(isDev ? devOnlyPlugins : []),
+    // ...(isDev ? devOnlyPlugins : []),
     media(),
   ],
 

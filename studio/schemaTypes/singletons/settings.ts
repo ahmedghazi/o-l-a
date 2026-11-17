@@ -1,11 +1,10 @@
-import {CogIcon} from '@sanity/icons'
 import {defineType, defineField} from 'sanity'
 
 export default defineType({
   name: 'settings',
   title: 'Réglages (header, footer, ...)',
   type: 'document',
-  icon: CogIcon,
+  // icon: FaCog,
   groups: [
     // {
     //   default: true,
