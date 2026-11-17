@@ -5,6 +5,7 @@ import type { ProjectExtend } from '~/types/schema-extend'
 
 const props = defineProps<{
   input: ProjectExtend
+  collapsed?: boolean
 }>()
 </script>
 
@@ -14,8 +15,10 @@ const props = defineProps<{
       <h2 class="project-header__title">{{ input.title }}</h2>
       <SanityImage :image="input.imageCover" :alt="input.title" :width="40" />
     </div>
-    <div class="project-header__materials">{{ input.materials || 'Materials' }}</div>
-    <div class="project-header__localisation">{{ input.localisation || 'Localisation' }}</div>
+    <template v-if="!collapsed">
+      <div class="project-header__materials">{{ input.materials || 'Materials' }}</div>
+      <div class="project-header__localisation">{{ input.localisation || 'Localisation' }}</div>
+    </template>
   </div>
 </template>
 
@@ -33,14 +36,9 @@ const props = defineProps<{
     align-items: center;
     gap: 1rem;
   }
-  &__title {
-  }
-  &__localisation {
-    // text-align: right;
-  }
+
   &__materials,
   &__localisation {
-    // text-align: center;
     text-indent: 1.5rem;
   }
   figure {

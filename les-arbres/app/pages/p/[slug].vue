@@ -1,11 +1,10 @@
 <script setup lang="ts">
-// import { PortableText } from '@portabletext/vue'
-import { PortableText } from '@portabletext/vue'
-import ProjectHeader from '~/components/ProjectHeader.vue'
-// import ExcertToText from '~/components/ui/ExcertToText.vue'
-import { PROJECT_QUERY } from '~/lib/queries'
+import { ALL_PROJECTS_QUERY, PROJECT_QUERY } from '~/lib/queries'
 import type { Project, Seo } from '~/types/schema'
+
 const route = useRoute()
+const { data: projects, refresh: refreshProjects } =
+  await useSanityQuery<Project[]>(ALL_PROJECTS_QUERY)
 const { data, refresh } = await useSanityQuery<Project>(PROJECT_QUERY, {
   slug: route.params.slug,
 })
@@ -25,33 +24,18 @@ useHead({
   title: seo?.metaTitle || 'Olivier Lellouche Design Workshop',
   meta: [{ name: 'description', content: seo?.metaDescription || '' }],
 })
+
+const { items, nextProject, sentinel } = useNextProject(pageData, projects)
 </script>
 
 <template>
   <!-- <SmoothScroller> -->
   <div class="template template--project">
     <template v-if="data">
-      <div class="mb-md">
-        <ProjectHeader :input="data" />
-        <div v-if="data.text || data.links" class="mt-md">
-          <!-- <ExcertToText :content="data.text" /> -->
-          <div class="grid md:grid-cols-4">
-            <div v-if="data.text" class="col-span-3">
-              <PortableText :value="data.text" />
-            </div>
-            <ul v-if="data.links">
-              <li v-for="link in data.links" :key="link._key">
-                <a :href="link.link" target="_blank">{{ link.label }}</a>
-              </li>
-            </ul>
-          </div>
-        </div>
+      <div v-for="item in items" :key="item._id" class="project-item mb-xl" :data-id="item._id">
+        <ContentProject :data="item" />
       </div>
-      <div class="images grid gap-sm">
-        <div class="images__item" v-for="item in data.media" :key="item._key">
-          <SanityImage :image="item" :alt="data.title" :width="1920" />
-        </div>
-      </div>
+      <div v-if="nextProject" ref="sentinel" class="project-sentinel"></div>
     </template>
     <div v-else>please edit page</div>
   </div>

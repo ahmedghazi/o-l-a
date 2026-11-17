@@ -23,7 +23,7 @@ footer {
 
 <template>
   <footer id="footer-site">
-    <div class="grid gap-sm md:grid-cols-3 md:gap-md">
+    <div class="grid items-end gap-sm md:grid-cols-3 md:gap-md">
       <div class="copy">{{ yearInWords(year) }} © {{ settings?.siteName }}</div>
       <div class="credits">
         Credits: Designed by

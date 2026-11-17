@@ -10,14 +10,18 @@ const _toggle = (val: boolean) => {
 }
 
 const route = useRoute()
+// Also updated by useNextProject when the url changes outside the router
+const activePath = useState<string>('activePath', () => route.path)
 
 watch(
   route,
   (value) => {
     _toggle(false)
+    activePath.value = value.path
   },
   { deep: true, immediate: true },
 )
+const isSameAsLink = (to: string) => activePath.value === to
 </script>
 
 <template>
@@ -42,14 +46,14 @@ watch(
 
       <nav :class="{ 'is-open': isOpen === true, 'hide-sb': true }">
         <ul>
+          <!-- <li>{{ activePath }}</li> -->
+
           <li v-for="item in settings?.nav" :key="item._id">
-            <NuxtLink :to="_linkResolver(item)">
-              <ProjectHeader :input="item" />
-            </NuxtLink>
-          </li>
-          <li v-for="item in settings?.nav" :key="item._id">
-            <NuxtLink :to="_linkResolver(item)">
-              <ProjectHeader :input="item" />
+            <NuxtLink
+              :to="_linkResolver(item)"
+              :class="{ 'is-active': isSameAsLink(_linkResolver(item)) }"
+            >
+              <ProjectHeader :input="item" :collapsed="!isSameAsLink(_linkResolver(item))" />
             </NuxtLink>
           </li>
         </ul>
@@ -96,12 +100,13 @@ nav {
 
 nav li {
   margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
   a {
     text-decoration: none;
     transition: transform 0.2s ease;
     display: block;
     &:hover,
-    &[aria-current='page'] {
+    &[aria-current='pages'] {
       // transform: translateX(2em);
       text-decoration: underline;
     }
