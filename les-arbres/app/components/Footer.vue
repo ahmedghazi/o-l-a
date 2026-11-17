@@ -28,8 +28,7 @@ footer {
     <div class="grid items-end gap-sm md:grid-cols-3 md:gap-md">
       <div class="copy">{{ year }} © {{ settings?.siteName }}</div>
       <div class="credits">
-        Credits: Designed by
-        <a href="https://www.ahmedghazi.com" target="_blank">Ahmed Ghazi</a> Coded by
+        Credits: Designed & Code by
         <a href="https://www.ahmedghazi.com" target="_blank">Ahmed Ghazi</a>
       </div>
       <div class="maj hidden md:text-right">Updated on {{ settings._updatedAt }}</div>
