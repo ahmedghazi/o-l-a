@@ -109,7 +109,7 @@ onBeforeUnmount(() => {
 </template>
 
 <style scoped>
-.canvas-favicon {
+.canvas- {
   position: absolute;
   width: 0;
   height: 0;

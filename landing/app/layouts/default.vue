@@ -46,6 +46,6 @@ function _format() {
       <slot />
     </main>
     <Footer />
-    <Canvasfavicon :radius="64" />
+    <!-- <Canvasfavicon :radius="64" /> -->
   </div>
 </template>
