@@ -17,7 +17,10 @@ const props = defineProps<{
       <SanityImage :image="input.imageCover" :alt="input.title" :width="40" />
     </div>
     <template v-if="!collapsed">
-      <div class="project-header__localisation">{{ input.localisation || 'Localisation' }}</div>
+      <div class="project-header__localisation">
+        {{ input.localisation || 'Localisation' }},
+        {{ input.year ? new Date(input.year).getFullYear() : '' }}
+      </div>
       <div v-if="input.text" class="project-header__text">
         <PortableText :value="input.text" />
       </div>

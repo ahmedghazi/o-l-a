@@ -21,6 +21,19 @@ watch(
   },
   { deep: true, immediate: true },
 )
+
+// Scroll the nav (not the window) so the active item stays visible
+const navRef = ref<HTMLElement | null>(null)
+const scrollToActive = () => {
+  const nav = navRef.value
+  const item = nav?.querySelector<HTMLElement>(`[data-path="${activePath.value}"]`)
+  if (!nav || !item) return
+  const offset = item.getBoundingClientRect().top - nav.getBoundingClientRect().top
+  nav.scrollTo({ top: nav.scrollTop + offset - parseFloat(getComputedStyle(nav).paddingTop), behavior: 'smooth' })
+}
+// flush: 'post' waits for the active item to be expanded in the DOM
+watch(activePath, scrollToActive, { flush: 'post' })
+onMounted(scrollToActive)
 const isSameAsLink = (to: string) => activePath.value === to
 </script>
 
@@ -44,11 +57,11 @@ const isSameAsLink = (to: string) => activePath.value === to
         <button class="sm-only" @click="_toggle(!isOpen)">{{ isOpen ? 'Close' : 'Menu' }}</button>
       </div>
 
-      <nav :class="{ 'is-open': isOpen === true, 'hide-sb': true }">
+      <nav ref="navRef" :class="{ 'is-open': isOpen === true, 'hide-sb': true }">
         <ul>
           <!-- <li>{{ activePath }}</li> -->
 
-          <li v-for="item in settings?.nav" :key="item._id">
+          <li v-for="item in settings?.nav" :key="item._id" :data-path="_linkResolver(item)">
             <NuxtLink
               :to="_linkResolver(item)"
               :class="{ 'is-active': isSameAsLink(_linkResolver(item)) }"

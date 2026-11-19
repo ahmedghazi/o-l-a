@@ -21,7 +21,7 @@ const randomIndex = useState('homeRandomIndex', () =>
 )
 const randomImage = data.value?.randomImages?.[randomIndex.value]
 useHead({
-  title: data.value?.seo?.metaTitle || 'Olivier Lellouche Design Workshop',
+  title: data.value?.seo?.metaTitle || 'Les Arbres',
   meta: [{ name: 'description', content: data.value?.seo?.metaDescription || '' }],
 })
 </script>

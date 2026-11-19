@@ -8,7 +8,6 @@ const hiddenDocTypes = (listItem: ListItemBuilder) => {
 
   return ![
     'home',
-    ,
     'media.folder',
     'landing',
     'media.tag',

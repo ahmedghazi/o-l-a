@@ -64,5 +64,6 @@ export const INFOS_QUERY = groq`*[_type == "infos"][0]{
       ...,
       asset->
     }
-  }
+  },
+  bio
 }`
