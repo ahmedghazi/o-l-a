@@ -29,7 +29,10 @@ const scrollToActive = () => {
   const item = nav?.querySelector<HTMLElement>(`[data-path="${activePath.value}"]`)
   if (!nav || !item) return
   const offset = item.getBoundingClientRect().top - nav.getBoundingClientRect().top
-  nav.scrollTo({ top: nav.scrollTop + offset - parseFloat(getComputedStyle(nav).paddingTop), behavior: 'smooth' })
+  nav.scrollTo({
+    top: nav.scrollTop + offset - parseFloat(getComputedStyle(nav).paddingTop),
+    behavior: 'smooth',
+  })
 }
 // flush: 'post' waits for the active item to be expanded in the DOM
 watch(activePath, scrollToActive, { flush: 'post' })
@@ -47,13 +50,20 @@ const isSameAsLink = (to: string) => activePath.value === to
             <LogoAcronyme :input="settings?.siteName" />
           </NuxtLink>
         </div>
-        <ul v-if="settings?.socials && settings.socials.length > 0" class="socials hidden-sm">
-          <li v-for="social in settings?.socials" :key="social._id">
-            <NuxtLink :to="social.url">
-              {{ social.name }}
+        <ul
+          v-if="settings?.navSecondary && settings.navSecondary.length > 0"
+          class="nav-secondary hidden-sm"
+        >
+          <li v-for="item in settings?.navSecondary" :key="item._id">
+            <NuxtLink v-if="item._type === 'linkInternal'" :to="_linkResolver(item.link)">
+              {{ item?.label }}
             </NuxtLink>
+            <a v-else :href="item.link" target="_blank" rel="noopener noreferrer">
+              {{ item.label }}
+            </a>
           </li>
         </ul>
+
         <button class="sm-only" @click="_toggle(!isOpen)">{{ isOpen ? 'Close' : 'Menu' }}</button>
       </div>
 
@@ -124,6 +134,10 @@ nav li {
       text-decoration: underline;
     }
   }
+}
+.nav-secondary {
+  display: flex;
+  gap: var(--spacing-sm);
 }
 @media screen and (max-width: 768px) {
   header {

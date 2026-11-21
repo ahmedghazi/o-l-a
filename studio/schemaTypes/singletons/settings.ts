@@ -49,9 +49,17 @@ export default defineType({
 
     defineField({
       name: 'nav',
-      title: 'Nav',
+      title: 'Nav projets',
       type: 'array',
       of: [{type: 'reference', to: [{type: 'project'}]}],
+      group: 'header',
+    }),
+
+    defineField({
+      name: 'navSecondary',
+      title: 'Nav Secondary',
+      type: 'array',
+      of: [{type: 'linkInternal'}, {type: 'linkExternal'}],
       group: 'header',
     }),
 

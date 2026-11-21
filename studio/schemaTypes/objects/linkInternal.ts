@@ -26,7 +26,7 @@ export default defineField({
       name: 'link',
       type: 'reference',
       weak: true,
-      to: [{type: 'home'}, {type: 'project'}],
+      to: [{type: 'home'}, {type: 'project'}, {type: 'infos'}],
     }),
   ],
 })

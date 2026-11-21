@@ -138,11 +138,18 @@ export interface Settings extends SanityDocument {
   siteName?: string;
 
   /**
-   * Nav — `array`
+   * Nav projets — `array`
    *
    *
    */
   nav?: Array<SanityKeyedReference<Project>>;
+
+  /**
+   * Nav Secondary — `array`
+   *
+   *
+   */
+  navSecondary?: Array<SanityKeyed<LinkInternal> | SanityKeyed<LinkExternal>>;
 
   /**
    * Message 404 — `blockContent`
@@ -194,25 +201,6 @@ export interface Infos extends SanityDocument {
    *
    */
   bio?: BlockContent;
-
-  /**
-   * Image — `image`
-   *
-   *
-   */
-  image?: {
-    _type: "image";
-    asset: SanityReference<SanityImageAsset>;
-    crop?: SanityImageCrop;
-    hotspot?: SanityImageHotspot;
-  };
-
-  /**
-   * CV — `array`
-   *
-   *
-   */
-  cv?: Array<SanityKeyed<KeyValGroup>>;
 }
 
 /**
@@ -333,7 +321,7 @@ export type LinkInternal = {
    *
    *
    */
-  link?: SanityReference<Home | Project>;
+  link?: SanityReference<Home | Project | Infos>;
 };
 
 export type LinkExternal = {

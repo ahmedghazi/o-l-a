@@ -30,6 +30,15 @@ export const SETTINGS_QUERY = groq`*[_type == "settings"][0]{
       }
     },
   },
+  navSecondary[]{
+    ...,
+    _type == 'linkInternal' => {
+      link->{
+        _type,
+        slug
+      }
+    }
+  }
 }`
 
 export const HOME_QUERY = groq`*[_type == "home"][0]{
